@@ -1,0 +1,22 @@
+# Go build artifacts
+/note-app
+/note-app.exe
+/note-app.test
+/note-app.dSYM/
+/coverage.out
+/dist/
+/bin/
+/tmp/
+
+# Module cache
+/vendor/
+
+# Editor/OS junk
+.DS_Store
+*.swp
+*.swo
+*.log
+
+# App data
+notes.json
+concept_cache.json
