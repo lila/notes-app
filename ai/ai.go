@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"slices"
 	"strings"
 
 	"github.com/google/generative-ai-go/genai"
@@ -41,11 +42,9 @@ func init() {
 		if err != nil {
 			log.Fatalf("Failed to list models: %v", err)
 		}
-		for _, method := range m.SupportedGenerationMethods {
-			if method == "generateContent" {
-				genModel = client.GenerativeModel(m.Name)
-				return
-			}
+		if slices.Contains(m.SupportedGenerationMethods, "generateContent") {
+			genModel = client.GenerativeModel(m.Name)
+			return
 		}
 	}
 	log.Println("No suitable generative model found.")
